@@ -1,7 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
-// TODO: need to import time package
 
-const thoughtSchema = new Schema({
+const ThoughtSchema = new Schema({
 
 	thoughtText: {
 		type: String,
@@ -16,9 +15,10 @@ const thoughtSchema = new Schema({
 	},
 	username: {
 		type: String,
-		required: true
+		required: true,
+		ref: 'User'
 	},
-	reactions: [reactionSchema]
+	reactions: [ReactionSchema],
 },
 	{
 		toJSON: {
@@ -29,7 +29,7 @@ const thoughtSchema = new Schema({
 	}
 );
 
-const reactionSchema = new Schema({
+const ReactionSchema = new Schema({
 
 	reactionId: {
 		type: Schema.Types.ObjectId,
@@ -38,6 +38,8 @@ const reactionSchema = new Schema({
 	reactionBody: {
 		type: String,
 		required: true,
+		trim: true,
+		minlength: 1,
 		maxlength: 280
 	},
 	username: {
@@ -58,11 +60,11 @@ const reactionSchema = new Schema({
 );
 
 // Thought virtual
-thoughtSchema.virtual('reactionCount').get(function() {
+ThoughtSchema.virtual('reactionCount').get(function() {
 	return this.reactions.length;
 });
 
 // create the Thought Model using the thoughtSchema
-const Thought = model('Thought', thoughtSchema);
+const Thought = model('Thought', ThoughtSchema);
 
 module.exports = Thought;
