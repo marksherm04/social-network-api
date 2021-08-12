@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 // TODO: NEED TO ADD TIME LIBRARY
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
 	username: {
 		type: String,
 		unique: true, // username must be unique
@@ -37,12 +37,12 @@ const UserSchema = new Schema({
 );
 
 // get total count of friends on retrievel
-UserSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
 	return this.friends.length;
 });
 
 // create the User Model using the UserSchema
-const User = model('User', UserSchema);
+const User = model('User', userSchema);
 
 // export User model
 module.exports = User;
