@@ -1,34 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
 
-const ThoughtSchema = new Schema({
-
-	thoughtText: {
-		type: String,
-		required: true,
-		minlength: [1, 'You must type a character!'],
-		maxlength: [280, 'You can not have more than 280 characters!']
-	},
-	createdAt: {
-		type: Date,
-		default: Date.now,
-		get: (createdAtValue) => dateFormat(createdAtValue)
-	},
-	username: {
-		type: String,
-		required: true,
-		ref: 'User'
-	},
-	reactions: [ReactionSchema],
-},
-	{
-		toJSON: {
-			virtuals: true,
-			getters: true
-		},
-		id: false
-	}
-);
-
 const ReactionSchema = new Schema({
 
 	reactionId: {
@@ -59,6 +30,35 @@ const ReactionSchema = new Schema({
 	}
 );
 
+const ThoughtSchema = new Schema({
+
+	thoughtText: {
+		type: String,
+		required: true,
+		minlength: [1, 'You must type a character!'],
+		maxlength: [280, 'You can not have more than 280 characters!']
+	},
+	createdAt: {
+		type: Date,
+		default: Date.now,
+		get: (createdAtValue) => dateFormat(createdAtValue)
+	},
+	username: {
+		type: String,
+		required: true,
+		ref: 'User'
+	},
+	reactions: [ReactionSchema],
+},
+	{
+		toJSON: {
+			virtuals: true,
+			getters: true
+		},
+		id: false
+	}
+);
+
 // Thought virtual
 ThoughtSchema.virtual('reactionCount').get(function() {
 	return this.reactions.length;
@@ -66,5 +66,6 @@ ThoughtSchema.virtual('reactionCount').get(function() {
 
 // create the Thought Model using the thoughtSchema
 const Thought = model('Thought', ThoughtSchema);
+
 
 module.exports = Thought;
