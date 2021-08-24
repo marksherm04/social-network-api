@@ -28,7 +28,7 @@ https://drive.google.com/file/d/1UTVmt9OFR27gLlSH6PyVduT6lgk3doP4/view  — Part
 https://drive.google.com/file/d/1QynEAdlOAw423JbeZZFY0s7_-M83Vl8S/view  — Part 2
 
 ## Screenshot
-
+<img width="2279" alt="Screen Shot 2021-08-23 at 9 24 30 PM" src="https://user-images.githubusercontent.com/81338255/130540694-ab60a768-8dfc-46db-a763-7dc2f4472ef3.png">
 
 ## Contributing
 Mark Sherman
