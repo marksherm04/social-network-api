@@ -24,8 +24,11 @@ npm install (install express) and npm install mongoose, also make sure you have 
 Express.js, MongoDB, and Mongoose
 
 ## Walkthrough
+https://drive.google.com/file/d/1UTVmt9OFR27gLlSH6PyVduT6lgk3doP4/view  — Part 1
+https://drive.google.com/file/d/1QynEAdlOAw423JbeZZFY0s7_-M83Vl8S/view  — Part 2
 
 ## Screenshot
+
 
 ## Contributing
 Mark Sherman
